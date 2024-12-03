@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Importálás
 import requests
 import ibm_boto3
 from ibm_botocore.client import Config
@@ -7,6 +8,9 @@ import os
 
 # Flask alkalmazás létrehozása
 app = Flask(__name__)
+
+# CORS engedélyezése minden domain számára
+CORS(app)
 
 # IBM Cloud Object Storage konfigurálása
 cos = ibm_boto3.client(
@@ -18,7 +22,6 @@ cos = ibm_boto3.client(
 )
 
 bucket_name = 'servicenow3'  # COS bucket neve
-
 
 # Token érvényességének ellenőrzése
 def check_token_validity(felhasználónév):
