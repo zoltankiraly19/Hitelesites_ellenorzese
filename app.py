@@ -33,7 +33,7 @@ def check_token_validity(felhasználónév):
         # Token használatával próbáljuk lekérni a felhasználó adatokat
         headers = {'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'}
         response_user = requests.get(
-            f"https://dev227667.service-now.com/api/now/table/sys_user?sysparm_query=user_name={felhasználónév}",
+            f"https://dev182538.service-now.com/api/now/table/sys_user?sysparm_query=user_name={felhasználónév}",
             headers=headers
         )
 
